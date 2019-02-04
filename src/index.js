@@ -1,15 +1,14 @@
 import React, {Component} from 'react';
-import Slider from 'rc-slider';
-import 'rc-slider/assets/index.css';
+import ReactDOM from 'react-dom';
 import './corect.css';
-import { Scroller } from 'react-skroll'
-const { Component, PropTypes } = React
-const { Scroller, scrollInitalState } = ReactSkroll
+import './baza.css';
+import  { Scroller, scrollInitalState} from 'react-skroll'
+
+import  App from './slider3.js';
 
 
-function round(val) {
-    return (Math.round(val * 100) / 100).toFixed(2);
-}
+
+
 
 
 function ContentSlider(props) {
@@ -17,37 +16,39 @@ function ContentSlider(props) {
         return (
             <div className="slide slide1">
                 <h1>Всегда ли цели терапии СД2 на поверхности?</h1>
-                <h3 className="sel0">Гипогликемия</h3>
-                <h3 className="sel1">Осложнения СД</h3>
-                <h3 className="sel2">Цель по HbA1c</h3>
-                <h3 className="sel3">СС риски</h3>
+                <h3 className="sel0"><span><div className="circle"></div>
+<div className="circle2"></div></span>Гипогликемия</h3>
+                <h3 className="sel1"><span><div className="circle"></div>
+<div className="circle2"></div></span>Осложнения СД</h3>
+                <h3 className="sel2"><span><div className="circle"></div>
+<div className="circle2"></div></span>Цель по HbA1c</h3>
+                <h3 className="sel3"><span><div className="circle"></div>
+<div className="circle2"></div></span>СС риски</h3>
             </div>
         );
+
     }else if (props.ex ===1) {
-        return (<div className="slide slide2">
-            <h1>Основа терапии — патогенез СД2 </h1>
+        return (<div className="slide slide2"><h1>Основа терапии — патогенез СД2 </h1>
+            <div className="Parallax" >
+            </div>
         </div>)
     }else return (
-        <div className='slider'>
-            <Slider
-                min={0}
-                max={100}
-                step={50}
-                text={text}
-                onChange={this.handleChange}
-            />
-            <div className='text'>{text}</div>
-        </div>
+
+            <App/>
+
+
     );
+
 }
+
 
 const sliders = [
     {name: "Slade1", color: "url(./images/more_cop.jpg)" },
     {name: "Slade2", color: "url(./images/more_cop2.jpg)" },
-    {name: "Slade3", color: "url(./images/more_cop3.jpg)"}
+    {name: "Slade3", color: ""}
 ]
 
-class Demo extends Component {
+class Demo1 extends Component {
     constructor(props, context) {
         super(props, context)
 
@@ -55,7 +56,9 @@ class Demo extends Component {
             scroll: scrollInitalState,
             text: 100
         }
+
     }
+
     handleChange = (text) => {
         this.setState({
             text: text
@@ -82,7 +85,6 @@ class Demo extends Component {
                         )
                     }
                 </nav>
-
                 <Scroller
                     scrollRef={ref => this.scroll = ref}
                     autoScroll={true}
@@ -101,4 +103,10 @@ class Demo extends Component {
         )
     }
 }
-export default Demo;
+ReactDOM.render(
+    <Demo1 />,
+    document.getElementById('root')
+)
+
+
+

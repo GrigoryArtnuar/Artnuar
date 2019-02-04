@@ -62,29 +62,32 @@ class App extends Component {
                     <Slider className="ImageRemove" min={0}
                             handleStyle={{
                                 backgroundSize: 'contain',
-                                width: '60px',
-                                height: '60px',
+                                width: '44px',
+                                height: '56px',
                                 backgroundColor: 'none',
-                                backgroundSize: '100% 100%',
+                                backgroundSize: '44px 56px',
                                 border:'none',
                                 backgroundColor: 'transparent',
+                                backgroundRepeat: 'no-repeat',
                                 position: 'absolute',
                                 top: '-20px',
+                                borderRadius: '0',
                                 backgroundImage: "url(./images/Polygon.png)"
                             }}
                             trackStyle={{
                                 height: '10px',
                                 borderRadius: '0'
-
                             }}
                             railStyle={{
                                 height: '10px',
-                                borderRadius: '0'
+                                borderRadius: '0',
+                                opacity: '.3'
                             }}
                             man={100} included={true} defaultValue={this.state.value} value={this.state.value}
-                            onChange={this.handleChange}
-                            onAfterChange={this.handleRound}/>
+                            onChange={this.handleRound}
+                            /*onAfterChange={this.handleRound}*/ />
                     <div className="three">
+                        <div> <h3>1998</h3></div><div> <h3>2009</h3></div><div><h3>2016</h3></div>
                     </div>
                 </div>
 
